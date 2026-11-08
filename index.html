@@ -3,9 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
 </head>
 
 <body>
@@ -14,8 +16,14 @@
         <h1>Bryan's Webpage</h1>
         <h2 id="welcomeMessage"></h2>
 
-        <nav>
+        <!-- Dark Mode Toggle -->
+        <label for="darkModeToggle">Dark Mode:</label>
+        <input type="checkbox" id="darkModeToggle">
+
+        <!-- Navigation -->
+        <nav aria-label="Main navigation">
             <a href="#about">About</a> |
+            <a href="#featured">Featured Content</a> |
             <a href="#projects">Projects</a> |
             <a href="#contact">Contact</a>
         </nav>
@@ -34,10 +42,63 @@
             </p>
 
             <p>
-                I enjoy playing Games, Sports, Watching Youtube
-                and Hanging out with frineds.
+                I enjoy playing Games, Sports,
+                Watching Youtube and Hanging
+                out with friends.
             </p>
+
+            <h3>My Skills</h3>
+            <ul id="skillsList"></ul>
         </section>
+
+
+        <!-- Featured Content Section -->
+        <section id="featured">
+            <h2>Featured Content</h2>
+
+            <!-- University Resources -->
+            <div id="universityResources"
+                 class="resource-card">
+
+                <h3>University Resources</h3>
+
+                <p>
+                    Explore ECPI University and
+                    its technology programs.
+                </p>
+
+                <a href="https://www.ecpi.edu/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ECPI University
+                </a>
+
+              
+            </div>
+
+            <!-- Personal Projects -->
+            <div id="personalProjects"
+                 class="resource-card">
+
+                <h3>Personal Projects</h3>
+
+                <p>
+                    Check out one of my web projects.
+                </p>
+
+                <a href="https://bryanrolleportfolio.com"
+                   target="_blank"
+                   rel="noopener noreferrer">
+
+                    <img
+                        class="project-image"
+                        src="https://placehold.co/200x150?text=Gamer+Website"
+                        alt="Gamer website project"
+                        width="200">
+                </a>
+            </div>
+        </section>
+
 
         <!-- Projects Section -->
         <section id="projects">
@@ -47,24 +108,43 @@
                 Here are some projects I have worked on.
             </p>
 
-            <a href="bryanrolleportfolio.com" target="_blank"
+            <!-- Project 1 -->
+            <a href="https://bryanrolle.github.io/website-projects/movie%20website/index.html#"
+               target="_blank"
                rel="noopener noreferrer">
-                <img src="https://placehold.co/200x150?text=Project+1"
-                     alt="Project 1" width="200">
+
+                <img
+                    class="project-image"
+                    src="https://placehold.co/200x150?text=Project+1"
+                    alt="Project 1"
+                    width="200">
             </a>
 
-            <a href="https://bryanrolle.github.io/website-projects/gamer%20website/index.html" target="_blank"
+            <!-- Project 2 -->
+            <a href="https://bryanrolle.github.io/website-projects/gamer%20website/index.html"
+               target="_blank"
                rel="noopener noreferrer">
-                <img src="https://placehold.co/200x150?text=Project+2"
-                     alt="Project 2" width="200">
+
+                <img
+                    class="project-image"
+                    src="https://placehold.co/200x150?text=Project+2"
+                    alt="Project 2"
+                    width="200">
             </a>
 
-            <a href="https://bryanrolle.github.io/website-projects/nft%20website/index.html" target="_blank"
+            <!-- Project 3 -->
+            <a href="https://bryanrolle.github.io/website-projects/nft%20website/index.html"
+               target="_blank"
                rel="noopener noreferrer">
-                <img src="https://placehold.co/200x150?text=Project+3"
-                     alt="Project 3" width="200">
+
+                <img
+                    class="project-image"
+                    src="https://placehold.co/200x150?text=Project+3"
+                    alt="Project 3"
+                    width="200">
             </a>
         </section>
+
 
         <!-- Contact Section -->
         <section id="contact">
@@ -72,31 +152,43 @@
 
             <form id="contactForm">
 
-                <label for="name">Full Name:</label>
-                <input type="text" id="name"
-                       name="name" required>
+                <div class="form-field">
+                    <label for="name">Full Name:</label>
+                    <input type="text"
+                           id="name"
+                           name="name"
+                           required>
+                </div>
 
-                <br><br>
+                <div class="form-field">
+                    <label for="email">Email Address:</label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           required>
+                </div>
 
-                <label for="email">Email Address:</label>
-                <input type="email" id="email"
-                       name="email" required>
+                <div class="form-field">
+                    <label for="subject">Subject:</label>
+                    <input type="text"
+                           id="subject"
+                           name="subject"
+                           required>
+                </div>
 
-                <br><br>
+                <div class="form-field">
+                    <label for="message">Message:</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        required></textarea>
+                </div>
 
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject"
-                       name="subject" required>
-
-                <br><br>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message"
-                          rows="5" required></textarea>
-
-                <br><br>
-
-                <button type="submit">Submit</button>
+                <button id="submitButton"
+                        type="submit">
+                    Submit
+                </button>
 
             </form>
         </section>
@@ -107,29 +199,118 @@
         <p>&copy; 2026 Bryan's Webpage</p>
     </footer>
 
-    <script>
-        // Ask the visitor for their name
-        let userName = prompt("What is your name?");
 
-        // Display a personalized welcome message
-        if (userName && userName.trim() !== "") {
-            document.getElementById("welcomeMessage")
-                .textContent = "Welcome to my webpage, "
-                             + userName + "!";
+    <script>
+
+        // Personalized Welcome Message
+        const userName = prompt("What is your name?");
+
+        document.getElementById("welcomeMessage").textContent =
+            userName && userName.trim() !== ""
+                ? "Welcome to my webpage, " + userName.trim() + "!"
+                : "Welcome to my webpage!";
+
+
+        // Conditional Logic
+        // Count the projects in the Projects section
+
+        const projectCount = document.querySelectorAll(
+            "#projects a:has(img)"
+        ).length;
+
+        const universityResources =
+            document.getElementById("universityResources");
+
+        const personalProjects =
+            document.getElementById("personalProjects");
+
+        if (projectCount < 3) {
+
+            universityResources.hidden = false;
+            personalProjects.hidden = false;
+
         } else {
-            document.getElementById("welcomeMessage")
-                .textContent = "Welcome to my webpage!";
+
+            universityResources.hidden = true;
+            personalProjects.hidden = false;
+
         }
 
-        // Handle contact form submission
-        document.getElementById("contactForm")
-            .addEventListener("submit", function(event) {
+
+        // Skills Array and Loop
+
+        const skills = [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Git",
+            "GitHub"
+        ];
+
+        const skillsList =
+            document.getElementById("skillsList");
+
+        skills.forEach(function(skill) {
+
+            const item = document.createElement("li");
+
+            item.textContent = skill;
+
+            skillsList.appendChild(item);
+
+        });
+
+
+        // Dark Mode Toggle
+
+        document.getElementById("darkModeToggle")
+            .addEventListener("change", function() {
+
+                document.body.classList.toggle(
+                    "dark-mode",
+                    this.checked
+                );
+
+            });
+
+
+        // Contact Form Button Interaction
+
+        const contactForm =
+            document.getElementById("contactForm");
+
+        document.getElementById("submitButton")
+            .addEventListener("click", function(event) {
+
                 event.preventDefault();
 
-                alert("Thank you for your message!");
+                if (!contactForm.reportValidity()) {
+                    return;
+                }
 
-                document.getElementById("contactForm").reset();
+                const senderName =
+                    document.getElementById("name")
+                        .value.trim();
+
+                alert(
+                    "Thank you, " + senderName +
+                    ", your message has been sent!"
+                );
+
+                contactForm.reset();
+
             });
+
+
+        // Prevent form refresh when pressing Enter
+
+        contactForm.addEventListener(
+            "submit",
+            function(event) {
+                event.preventDefault();
+            }
+        );
+
     </script>
 
 </body>
