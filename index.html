@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>My Webpage</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Bryan's Webpage</h1>
+        <h2 id="welcomeMessage"></h2>
+
+        <nav>
+            <a href="#about">About</a> |
+            <a href="#projects">Projects</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+
+            <p>
+                Hello! Welcome to my Webpage.
+                I am currently pursuing a Bachelor's
+                degree in AI and Machine Analytics.
+            </p>
+
+            <p>
+                I enjoy playing Games, Sports, Watching Youtube
+                and Hanging out with frineds.
+            </p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>My Projects</h2>
+
+            <p>
+                Here are some projects I have worked on.
+            </p>
+
+            <a href="bryanrolleportfolio.com" target="_blank"
+               rel="noopener noreferrer">
+                <img src="https://placehold.co/200x150?text=Project+1"
+                     alt="Project 1" width="200">
+            </a>
+
+            <a href="https://bryanrolle.github.io/website-projects/gamer%20website/index.html" target="_blank"
+               rel="noopener noreferrer">
+                <img src="https://placehold.co/200x150?text=Project+2"
+                     alt="Project 2" width="200">
+            </a>
+
+            <a href="https://bryanrolle.github.io/website-projects/nft%20website/index.html" target="_blank"
+               rel="noopener noreferrer">
+                <img src="https://placehold.co/200x150?text=Project+3"
+                     alt="Project 3" width="200">
+            </a>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+
+            <form id="contactForm">
+
+                <label for="name">Full Name:</label>
+                <input type="text" id="name"
+                       name="name" required>
+
+                <br><br>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email"
+                       name="email" required>
+
+                <br><br>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject"
+                       name="subject" required>
+
+                <br><br>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"
+                          rows="5" required></textarea>
+
+                <br><br>
+
+                <button type="submit">Submit</button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Bryan's Webpage</p>
+    </footer>
+
+    <script>
+        // Ask the visitor for their name
+        let userName = prompt("What is your name?");
+
+        // Display a personalized welcome message
+        if (userName && userName.trim() !== "") {
+            document.getElementById("welcomeMessage")
+                .textContent = "Welcome to my portfolio, "
+                             + userName + "!";
+        } else {
+            document.getElementById("welcomeMessage")
+                .textContent = "Welcome to my portfolio!";
+        }
+
+        // Handle contact form submission
+        document.getElementById("contactForm")
+            .addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                alert("Thank you for your message!");
+
+                document.getElementById("contactForm").reset();
+            });
+    </script>
+
+</body>
+</html>
