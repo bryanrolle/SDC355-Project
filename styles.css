@@ -116,3 +116,60 @@ body.dark-mode .highlight-heading {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+
+/* Welcome Background */
+
+#welcome {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Welcome Content */
+
+.welcome-content {
+    background-color: white;
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Welcome Close Button */
+
+#closeWelcome {
+    background-color: #1683b7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#closeWelcome:hover {
+    background-color: #0867bd;
+}
+
+/* Hide Welcome */
+
+#welcome.hidden {
+    display: none;
+}
+
+/* Dark Mode Welcome */
+
+body.dark-mode .welcome-content {
+    background-color: #222;
+    color: white;
+}

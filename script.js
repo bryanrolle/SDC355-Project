@@ -1,19 +1,17 @@
 
+/* Welcome Message */
 
-/* Personalized Welcome Message */
+const welcome = document.getElementById("welcome");
 
-const userName = prompt("What is your name?");
+const closeWelcome = document.getElementById("closeWelcome");
 
-const welcomeMessage =
-    document.getElementById("welcomeMessage");
+// Display welcome message when page loads
+welcome.classList.remove("hidden");
 
-if (userName && userName.trim() !== "") {
-    welcomeMessage.textContent =
-        "Welcome to my webpage, " + userName.trim() + "!";
-} else {
-    welcomeMessage.textContent =
-        "Welcome to my webpage!";
-}
+// Close welcome message
+closeWelcome.addEventListener("click", function() {
+    welcome.classList.add("hidden");
+});
 
 
 /* Conditional Logic for Featured Content */
@@ -47,8 +45,7 @@ const skills = [
     "GitHub"
 ];
 
-const skillsList =
-    document.getElementById("skillsList");
+const skillsList = document.getElementById("skillsList");
 
 skills.forEach(function(skill) {
     const listItem = document.createElement("li");
@@ -57,8 +54,7 @@ skills.forEach(function(skill) {
 });
 
 
-
-/* Dynamically Add a New Project Paragraph */
+/* Dynamically Add a Project Paragraph */
 
 const projectsSection = document.getElementById("projects");
 
@@ -72,36 +68,50 @@ newProjectParagraph.textContent =
 projectsSection.appendChild(newProjectParagraph);
 
 
-
 /* Modify Existing HTML Elements */
 
-// First element: About Me heading
 const aboutHeading = document.querySelector("#about h2");
 
 aboutHeading.textContent = "About Me & My Background";
 aboutHeading.classList.add("highlight-heading");
 
-// Second element: Projects heading
-const projectsHeading = document.getElementById("projects")
-    .querySelector("h2");
+const projectsHeading = document.querySelector("#projects h2");
 
 projectsHeading.textContent = "My Web Development Projects";
 projectsHeading.classList.add("highlight-heading");
 
 
-
-/* Dark Mode Toggle */
+/* Persistent Dark Mode */
 
 const darkModeToggle =
     document.getElementById("darkModeToggle");
 
-darkModeToggle.addEventListener("change", function() {
-    document.body.classList.toggle(
-        "dark-mode",
-        darkModeToggle.checked
-    );
-});
+// Check saved dark mode preference
+const savedDarkMode = localStorage.getItem("darkMode");
 
+// Apply saved preference
+if (savedDarkMode === "enabled") {
+    document.body.classList.add("dark-mode");
+    darkModeToggle.checked = true;
+} else {
+    document.body.classList.remove("dark-mode");
+    darkModeToggle.checked = false;
+}
+
+// Save dark mode preference
+darkModeToggle.addEventListener("change", function() {
+
+    if (darkModeToggle.checked) {
+        document.body.classList.add("dark-mode");
+
+        localStorage.setItem("darkMode", "enabled");
+    } else {
+        document.body.classList.remove("dark-mode");
+
+        localStorage.setItem("darkMode", "disabled");
+    }
+
+});
 
 
 /* Timed Contact Form Confirmation */
@@ -117,33 +127,33 @@ contactForm.addEventListener("submit", function(event) {
     // Prevent the page from refreshing
     event.preventDefault();
 
-    // Check form validity
+    // Validate form
     if (!contactForm.reportValidity()) {
         return;
     }
 
-    // Get the sender's name
+    // Get sender's name
     const senderName =
         document.getElementById("name").value.trim();
 
     // Display loading message
     formStatus.textContent = "Sending message...";
 
-    // Disable button while waiting
+    // Disable submit button
     submitButton.disabled = true;
 
-    // Delay confirmation by 3 seconds
+    // Wait 3 seconds
     setTimeout(function() {
 
-        // Replace loading message
+        // Display confirmation
         formStatus.textContent =
             "Thank you, " + senderName +
             "! Your message has been sent successfully!";
 
-        // Reset the form
+        // Reset form
         contactForm.reset();
 
-        // Enable button again
+        // Enable submit button
         submitButton.disabled = false;
 
     }, 3000);

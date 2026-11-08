@@ -14,7 +14,20 @@
 
     <header>
         <h1>Bryan's Webpage</h1>
-        <h2 id="welcomeMessage"></h2>
+        
+        <!-- Welcome -->
+        <div id="welcome">
+            <div class="welcome-content">
+                <h2>Welcome to Bryan's Webpage!</h2>
+
+                <p>This page is a work in progress.</p>
+
+                 <button type="button" id="closeWelcome">
+                    Close
+                </button>
+            </div>
+        </div>
+
 
         <!-- Dark Mode Toggle -->
         <label for="darkModeToggle">Dark Mode:</label>
@@ -185,8 +198,9 @@
                         required></textarea>
                 </div>
 
-                <button id="submitButton"
-                        type="submit">
+                <button type="submit"
+                    id="submitButton"
+                    title="Click to send your message!">
                     Submit
                 </button>
 
