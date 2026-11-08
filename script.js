@@ -14,11 +14,107 @@ closeWelcome.addEventListener("click", function() {
 });
 
 
+
+/* Custom Project Objects */
+
+const project1 = {
+    title: "Movie Website",
+    summary: "A movie website.",
+    image: "movie_website.png",
+    repository: "https://bryanrolle.github.io/website-projects/movie%20website/index.html"
+};
+
+const project2 = {
+    title: "Gaming Website",
+    summary: "An interactive gaming website.",
+    image: "gamer_website.png",
+    repository: "https://bryanrolle.github.io/website-projects/gamer%20website/index.html"
+};
+
+const project3 = {
+    title: "NFT Website",
+    summary: "A NFT-related website",
+    image: "nft_website.png",
+    repository: "https://bryanrolle.github.io/website-projects/nft%20website/index.html"
+};
+
+
+/* Store Objects in an Array */
+
+const projects = [project1, project2, project3];
+
+
+/* Store and Parse Project Information */
+
+let storedProjects = sessionStorage.getItem("projects");
+
+let projectData;
+
+if (storedProjects === null) {
+
+    // Convert array to JSON string
+    const projectsJSON = JSON.stringify(projects);
+
+    // Store array in session storage
+    sessionStorage.setItem("projects", projectsJSON);
+
+    projectData = projects;
+
+} else {
+
+    // Retrieve and parse stored JSON
+    projectData = JSON.parse(storedProjects);
+
+}
+
+
+/* Render Projects Dynamically */
+
+const projectsContainer =
+    document.getElementById("projectsContainer");
+
+projectData.forEach(function(project) {
+
+    // Create project container
+    const projectCard = document.createElement("div");
+    projectCard.classList.add("project-card");
+
+    // Create project title
+    const projectTitle = document.createElement("h3");
+    projectTitle.textContent = project.title;
+
+    // Create project summary
+    const projectSummary = document.createElement("p");
+    projectSummary.textContent = project.summary;
+
+    // Create project image
+    const projectImage = document.createElement("img");
+    projectImage.src = project.image;
+    projectImage.alt = project.title;
+    projectImage.width = 200;
+
+    // Create project link
+    const projectLink = document.createElement("a");
+    projectLink.href = project.repository;
+    projectLink.target = "_blank";
+    projectLink.rel = "noopener noreferrer";
+
+    projectLink.appendChild(projectImage);
+
+    // Add elements to project card
+    projectCard.appendChild(projectTitle);
+    projectCard.appendChild(projectSummary);
+    projectCard.appendChild(projectLink);
+
+    // Display project card
+    projectsContainer.appendChild(projectCard);
+
+});
+
+
 /* Conditional Logic for Featured Content */
 
-const projectCount = document.querySelectorAll(
-    "#projects a:has(img)"
-).length;
+const projectCount = projectData.length;
 
 const universityResources =
     document.getElementById("universityResources");
@@ -27,11 +123,15 @@ const personalProjects =
     document.getElementById("personalProjects");
 
 if (projectCount < 3) {
+
     universityResources.hidden = false;
     personalProjects.hidden = false;
+
 } else {
+
     universityResources.hidden = true;
     personalProjects.hidden = false;
+
 }
 
 

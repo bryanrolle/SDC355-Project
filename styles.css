@@ -173,3 +173,42 @@ body.dark-mode .welcome-content {
     background-color: #222;
     color: white;
 }
+
+
+/* Dynamic Projects Container */
+
+#projectsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Individual Project Cards */
+
+.project-card {
+    border: 2px solid #1683b7;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Project Titles */
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+/* Project Images */
+
+.project-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Dark Mode Project Cards */
+
+body.dark-mode .project-card {
+    border-color: #66ccff;
+}
