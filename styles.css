@@ -90,3 +90,29 @@ button {
     padding: 9px 18px;
     cursor: pointer;
 }
+
+
+/* Dynamically Modified Headings */
+
+.highlight-heading {
+    border-bottom: 2px solid #1683b7;
+    padding-bottom: 8px;
+    font-size: 26px;
+}
+
+body.dark-mode .highlight-heading {
+    border-bottom-color: #66ccff;
+}
+
+
+/* Contact Form Status */
+
+#formStatus {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+#submitButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
