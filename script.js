@@ -1,24 +1,39 @@
 
-/* Conditional Logic */
+
+/* Personalized Welcome Message */
+
+const userName = prompt("What is your name?");
+
+const welcomeMessage =
+    document.getElementById("welcomeMessage");
+
+if (userName && userName.trim() !== "") {
+    welcomeMessage.textContent =
+        "Welcome to my webpage, " + userName.trim() + "!";
+} else {
+    welcomeMessage.textContent =
+        "Welcome to my webpage!";
+}
+
+
+/* Conditional Logic for Featured Content */
 
 const projectCount = document.querySelectorAll(
     "#projects a:has(img)"
 ).length;
 
-const universityResources = document.getElementById(
-    "universityResources"
-);
+const universityResources =
+    document.getElementById("universityResources");
 
-const personalProjects = document.getElementById(
-    "personalProjects"
-);
+const personalProjects =
+    document.getElementById("personalProjects");
 
 if (projectCount < 3) {
-    universityResources.style.display = "block";
-    personalProjects.style.display = "block";
+    universityResources.hidden = false;
+    personalProjects.hidden = false;
 } else {
-    universityResources.style.display = "none";
-    personalProjects.style.display = "block";
+    universityResources.hidden = true;
+    personalProjects.hidden = false;
 }
 
 
@@ -32,7 +47,8 @@ const skills = [
     "GitHub"
 ];
 
-const skillsList = document.getElementById("skillsList");
+const skillsList =
+    document.getElementById("skillsList");
 
 skills.forEach(function(skill) {
     const listItem = document.createElement("li");
@@ -43,9 +59,8 @@ skills.forEach(function(skill) {
 
 /* Dark Mode Toggle */
 
-const darkModeToggle = document.getElementById(
-    "darkModeToggle"
-);
+const darkModeToggle =
+    document.getElementById("darkModeToggle");
 
 darkModeToggle.addEventListener("change", function() {
     document.body.classList.toggle(
@@ -57,20 +72,18 @@ darkModeToggle.addEventListener("change", function() {
 
 /* Contact Form Interaction */
 
-const contactForm = document.getElementById("contactForm");
+const contactForm =
+    document.getElementById("contactForm");
 
-const submitButton = contactForm.querySelector(
-    'button[type="submit"]'
-);
-
-submitButton.addEventListener("click", function(event) {
+contactForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
     if (!contactForm.reportValidity()) {
         return;
     }
 
-    const senderName = document.getElementById("name").value;
+    const senderName =
+        document.getElementById("name").value.trim();
 
     alert(
         "Thank you, " + senderName +

@@ -92,8 +92,8 @@
 
                     <img
                         class="project-image"
-                        src="https://placehold.co/200x150?text=Gamer+Website"
-                        alt="Gamer website project"
+                        src="img/portfolio_website.png"
+                        alt="Portfolio project"
                         width="200">
                 </a>
             </div>
@@ -115,7 +115,7 @@
 
                 <img
                     class="project-image"
-                    src="https://placehold.co/200x150?text=Project+1"
+                    src="img/movie_website.png"
                     alt="Project 1"
                     width="200">
             </a>
@@ -127,7 +127,7 @@
 
                 <img
                     class="project-image"
-                    src="https://placehold.co/200x150?text=Project+2"
+                    src="img/gamer_website.png"
                     alt="Project 2"
                     width="200">
             </a>
@@ -139,7 +139,7 @@
 
                 <img
                     class="project-image"
-                    src="https://placehold.co/200x150?text=Project+3"
+                    src="img/nft_website.png"
                     alt="Project 3"
                     width="200">
             </a>
@@ -198,120 +198,6 @@
     <footer>
         <p>&copy; 2026 Bryan's Webpage</p>
     </footer>
-
-
-    <script>
-
-        // Personalized Welcome Message
-        const userName = prompt("What is your name?");
-
-        document.getElementById("welcomeMessage").textContent =
-            userName && userName.trim() !== ""
-                ? "Welcome to my webpage, " + userName.trim() + "!"
-                : "Welcome to my webpage!";
-
-
-        // Conditional Logic
-        // Count the projects in the Projects section
-
-        const projectCount = document.querySelectorAll(
-            "#projects a:has(img)"
-        ).length;
-
-        const universityResources =
-            document.getElementById("universityResources");
-
-        const personalProjects =
-            document.getElementById("personalProjects");
-
-        if (projectCount < 3) {
-
-            universityResources.hidden = false;
-            personalProjects.hidden = false;
-
-        } else {
-
-            universityResources.hidden = true;
-            personalProjects.hidden = false;
-
-        }
-
-
-        // Skills Array and Loop
-
-        const skills = [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "Git",
-            "GitHub"
-        ];
-
-        const skillsList =
-            document.getElementById("skillsList");
-
-        skills.forEach(function(skill) {
-
-            const item = document.createElement("li");
-
-            item.textContent = skill;
-
-            skillsList.appendChild(item);
-
-        });
-
-
-        // Dark Mode Toggle
-
-        document.getElementById("darkModeToggle")
-            .addEventListener("change", function() {
-
-                document.body.classList.toggle(
-                    "dark-mode",
-                    this.checked
-                );
-
-            });
-
-
-        // Contact Form Button Interaction
-
-        const contactForm =
-            document.getElementById("contactForm");
-
-        document.getElementById("submitButton")
-            .addEventListener("click", function(event) {
-
-                event.preventDefault();
-
-                if (!contactForm.reportValidity()) {
-                    return;
-                }
-
-                const senderName =
-                    document.getElementById("name")
-                        .value.trim();
-
-                alert(
-                    "Thank you, " + senderName +
-                    ", your message has been sent!"
-                );
-
-                contactForm.reset();
-
-            });
-
-
-        // Prevent form refresh when pressing Enter
-
-        contactForm.addEventListener(
-            "submit",
-            function(event) {
-                event.preventDefault();
-            }
-        );
-
-    </script>
 
 </body>
 </html>
