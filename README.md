@@ -17,8 +17,6 @@ educational background.
 
 No external libraries or frameworks.
 
-The website uses standard HTML, CSS, and JavaScript.
-
 ## Author
 Bryan Rolle
 
